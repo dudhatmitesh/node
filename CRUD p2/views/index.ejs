@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .name{
+        width: 100%;
+        height: 600px;
+        /* background-size: auto; */
+        background-size: contain;
+        background-size: cover;
+        background-image: url(https://media.istockphoto.com/id/1191132035/photo/close-up-young-male-manager-hands-signing-contract.jpg?s=612x612&w=0&k=20&c=brGUV0Fgd-FZD0viSmFVTiSAcYF94Q5YUcJBMu-8ojE=);
+    }
+    .name h1{
+        color: white;
+        margin-left: 45%;
+    }
+    .name form{
+        margin-left: 35%;
+    }
+    .inputp{
+
+    }
+    .inputname{
+        /* display: flex;    */
+        margin-left: 8%;
+        background: none;
+    }
+    .inputp1{
+
+    }
+    .inputname1{
+        /* display: flex;    */
+        margin-left: 8%;
+        background: none;
+    }
+    .table1{
+        margin-left: 25%;
+        margin-top: 50px;
+        text-align: center;
+    }
+</style>
+<body >
+    <div class="name">
+        <h1>Form</h1>
+        <form action="/insert" method="post">
+            <p class="inputp">Name :-</p>  
+                <input class="inputname" type="text" placeholder="Enter Your Name" name="name" ><br>
+            <p class="inputp1">Subbject :-</p>  
+                <input class="inputname1" type="text" placeholder="Enter Your Subject" name="subject"> <br>
+            <button style="background: none;" type="submit">Add</button>
+        </form>
+
+        <table class="table1" border="5px" width="50%">
+            <thead>
+                <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.map((e,i) => { %>
+                    <tr>
+                        <td><%= e.id %></td>
+                        <td><%= e.name %></td>
+                        <td><%= e.subject %></td>
+                        <td>
+                            <a href="/edit/<%=e.id%>"><button style="background: none;">Edit</button></a>
+                            <a href="/delete?Id=<%=e.id%>"><button style="background: none;">Delete</button></a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>    
+</body> 
+</html>
