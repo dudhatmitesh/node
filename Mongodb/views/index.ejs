@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 </head>
 <style>
     body {
-        background-image: url("https://cdn.pixabay.com/photo/2024/06/16/15/23/book-8833644_1280.jpg");
+        background-image: url("https://images.unsplash.com/photo-1569511502671-8c1bbf96fc8d?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -24,8 +25,8 @@
 
     #main {
         height: 500px;
-        width: 500px;
-        /* border: 1px solid; */
+        width: 900px;
+        margin-left: -100px;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -34,36 +35,48 @@
 
 <body>
     <div id="main">
-        <h1>MONGO DB CRUD</h1>
-
-        <form action="/insert" method="post">
-            <input type="text" placeholder="Enter Your Name " name="name"
-                style="background-color: transparent;height: 30px;">
-            <input type="text" placeholder="Enter Your Subject" name="subject"
-                style="background-color: transparent;height: 30px;">
-            <button type="submit" style="background-color: transparent;height: 30px;">ADD</button>
+        <h1>BOOK COUNTER</h1>
+        <form action="/insert" method="post" enctype="multipart/form-data">
+            <input type="text" placeholder="Enter Book Name" name="name" style="background-color: transparent; height: 30px;padding-left: 10px;">
+            <input type="text" placeholder="Enter Other Name" name="subject" style="background-color: transparent; height: 30px;padding-left: 10px;">
+            <input type="file" name="image" >
+            <input type="date" placeholder="Enter Release Date" name="date" style="background-color: transparent; height: 30px;padding-left: 10px;">
+            <input type="number" placeholder="Enter Book Price" name="price" style="background-color: transparent; height: 30px;padding-left: 10px;">
+            <button type="submit" style="background-color: transparent; height: 35px;width: 100px;">ADD</button>
         </form>
-        <br>
-        <table border="2px" width="80%">
+        <table border="2px" width="100%" style="margin-top: 10px;">
             <thead>
-                <th>Name</th>
-                <th>Subject</th>
-                <th>Action</th>
+                <th>Book Name</th>
+                <th>Other Name</th>
+                <th>Images</th>
+                <th>Release Date</th>
+                <th>Price</th>
+                <th style="padding: 5px;">Action</th>
             </thead>
             <tbody>
-                <% data.map((e,i)=>{ %>
+                <% data.map((e,i)=>{%>
                     <tr>
-                        <td>
+                        <th>
                             <%=e.name%>
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             <%=e.subject%>
-                        </td>
-                        <td style="padding: 5px;"> <a href="/edit?id=<%=e.id%>"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                            <a href="/delete?id=<%=e.id%>"><button><i class="fa-solid fa-trash" style="background-color: transparent;"></i></button></a>
-                        </td>
+                        </th>
+                        <th>
+                            <img src="<%=e.image%>" alt="" width="40%" height="40%">
+                        </th>
+                        <th>
+                            <%=e.date%>
+                        </th>
+                        <th>
+                            <%=e.price%>
+                        </th>
+                        <th>
+                            <a href="/edit?id=<%=e.id%>"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                            <a href="/delete?id=<%=e.id%>"><button><button><i class="fa-solid fa-trash"></i></button></a>
+                        </th>
                     </tr>
-                    <% })%>
+                    <%})%>
             </tbody>
         </table>
     </div>
