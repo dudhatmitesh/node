@@ -1,12 +1,10 @@
-
 const express = require("express")
-const port = 1008;
+const port = 9938;
 const path = require("path");
 
 const app = express();
 const db = require("./config/admindb");
 const cookieParser = require("cookie-parser");
-
 
 app.set("view engine","ejs")
 app.use(express.urlencoded())

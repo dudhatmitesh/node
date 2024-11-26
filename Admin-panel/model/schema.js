@@ -1,13 +1,13 @@
 
 const mongoose = require("mongoose")
 
-const schema = mongoose.model({
+const schema = mongoose.Schema({
     name:{
         type:String,
         required:true
     }
 })
 
-const admin = mongoose.Schema("panel",schema)
+const admin = mongoose.model("admin-panel",schema)
 
 module.exports = admin;

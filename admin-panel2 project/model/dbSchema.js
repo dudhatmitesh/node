@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose")
 
 const schema = mongoose.Schema({
@@ -14,7 +15,5 @@ password:{
     required:true
 }
 })
-
 const dbSchema = mongoose.model("SEO-Dash-Schema",schema)
-
 module.exports = dbSchema;

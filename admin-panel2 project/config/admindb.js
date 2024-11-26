@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
- mongoose.connect("mongodb://127.0.0.1/SEO-Admin")
+ mongoose.connect("mongodb://127.0.0.1/Adminpanel2 project")
 
  const db = mongoose.connection
 

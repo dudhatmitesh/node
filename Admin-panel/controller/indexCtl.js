@@ -1,5 +1,5 @@
-// const AdminSchema = require("../model/schema");
+const AdminSchema = require("../model/schema");
 
-// module.exports.HomePage = async(req,res) =>{
-//   req.render("index")
-// }
+module.exports.HomePage = async(req,res) =>{
+  res.render("dashboard")
+}
