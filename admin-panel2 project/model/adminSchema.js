@@ -21,4 +21,5 @@ const schema = mongoose.Schema({
 
 const admin = mongoose.model("seo-admin-schema",schema)
 
+
 module.exports = admin;
